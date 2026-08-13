@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Focus — To-Do</title>
+<script defer src="bundle.js"></script></head>
+<body>
+
+  <div id="app">
+    <aside id="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◆</span>
+        <span class="brand-name">Focus</span>
+      </div>
+
+      <ul id="project-list"></ul>
+
+      <button id="new-project-btn" class="ghost-btn">+ New project</button>
+    </aside>
+
+    <main id="main-panel">
+      <header id="content-header">
+        <h1 id="active-project-name">Default</h1>
+        <div class="header-actions">
+          <button id="delete-project-btn" class="text-btn" hidden>Delete project</button>
+          <button id="new-todo-btn" class="primary-btn">+ New todo</button>
+        </div>
+      </header>
+
+      <section id="content"></section>
+    </main>
+  </div>
+
+  <!-- Todo create/edit dialog -->
+  <dialog id="todo-dialog">
+    <form id="todo-form" method="dialog">
+      <h2 id="todo-dialog-title">New todo</h2>
+
+      <label>
+        Title
+        <input type="text" name="title" required maxlength="80" />
+      </label>
+
+      <label>
+        Description
+        <textarea name="description" rows="2"></textarea>
+      </label>
+
+      <div class="field-row">
+        <label>
+          Due date
+          <input type="date" name="dueDate" />
+        </label>
+
+        <label>
+          Priority
+          <select name="priority">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Notes
+        <textarea name="notes" rows="2"></textarea>
+      </label>
+
+      <section id="checklist-section">
+        <h3>Checklist</h3>
+        <ul id="checklist-items"></ul>
+        <div id="checklist-add-row">
+          <input type="text" id="checklist-input" placeholder="Add an item…" />
+          <button type="button" id="checklist-add-btn" class="text-btn">Add</button>
+        </div>
+      </section>
+
+      <div class="dialog-actions">
+        <button type="button" id="todo-cancel-btn" class="ghost-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- New project dialog -->
+  <dialog id="project-dialog">
+    <form id="project-form" method="dialog">
+      <h2>New project</h2>
+      <label>
+        Name
+        <input type="text" name="name" required maxlength="40" />
+      </label>
+      <div class="dialog-actions">
+        <button type="button" id="project-cancel-btn" class="ghost-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Create</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
